@@ -1,6 +1,6 @@
-import { NoteRepository } from '../repositories/NoteRepository';
-import { Note, NewNote, NotePatch } from '../models/Note';
-import { notify } from './notificationService';
+import { NewNote, Note, NotePatch } from "../models/Note";
+import { NoteRepository } from "../repositories/NoteRepository";
+import { notify } from "./notificationService";
 
 // Contrato fijo. Las rutas (src/routes/notes.ts) y los tests de la cátedra
 // llaman a estos 5 métodos por su nombre exacto: no los renombren.
@@ -40,8 +40,7 @@ export class NoteServiceImpl implements NoteService {
   }
 
   getNote(id: number): Note | undefined {
-    // 🔴🟢 EJERCICIO 3: ciclo completo (test + implementación).
-    throw new Error('getNote: no implementado (Ejercicio 3)');
+    return this.repo.findById(id);
   }
 
   updateNote(id: number, patch: NotePatch): Note | undefined {
@@ -50,6 +49,6 @@ export class NoteServiceImpl implements NoteService {
 
   deleteNote(id: number): boolean {
     // 🔴🟢 EJERCICIO 5: ciclo completo.
-    throw new Error('deleteNote: no implementado (Ejercicio 5)');
+    throw new Error("deleteNote: no implementado (Ejercicio 5)");
   }
 }
