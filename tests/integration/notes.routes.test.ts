@@ -2,7 +2,7 @@ import request from "supertest";
 import { beforeEach, describe, expect, it } from "vitest";
 import { makeApp } from "../../src/app";
 
-describe("GET /notes/:id (Ejercicio 3 - integracion", () => {
+describe("GET /notes/:id (Ejercicio 3 - integracion)", () => {
   let app: ReturnType<typeof makeApp>;
 
   beforeEach(() => {
