@@ -26,6 +26,11 @@ export class NoteServiceImpl implements NoteService {
     // notificationService. En el test, simulen ese módulo completo con
     // vi.mock y verifiquen la llamada con toHaveBeenCalledWith.
     return this.repo.create(data);
+    const note = this.repo.create(data)
+    if (note.pinned){
+      notify(note);
+    }
+    return note;
   }
 
   listNotes(): Note[] {
