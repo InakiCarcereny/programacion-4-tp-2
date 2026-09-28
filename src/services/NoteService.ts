@@ -1,6 +1,6 @@
-import { NoteRepository } from '../repositories/NoteRepository';
-import { Note, NewNote, NotePatch } from '../models/Note';
-import { notify } from './notificationService';
+import { NewNote, Note, NotePatch } from "../models/Note";
+import { NoteRepository } from "../repositories/NoteRepository";
+import { notify } from "./notificationService";
 
 // Contrato fijo. Las rutas (src/routes/notes.ts) y los tests de la cátedra
 // llaman a estos 5 métodos por su nombre exacto: no los renombren.
@@ -25,7 +25,7 @@ export class NoteServiceImpl implements NoteService {
     // es true, además deben llamar a notify(nota) del módulo
     // notificationService. En el test, simulen ese módulo completo con
     // vi.mock y verifiquen la llamada con toHaveBeenCalledWith.
-    throw new Error('createNote: no implementado (Ejercicio 1)');
+    return this.repo.create(data);
   }
 
   listNotes(): Note[] {
@@ -36,14 +36,13 @@ export class NoteServiceImpl implements NoteService {
   }
 
   getNote(id: number): Note | undefined {
-    // 🔴🟢 EJERCICIO 3: ciclo completo (test + implementación).
-    throw new Error('getNote: no implementado (Ejercicio 3)');
+    return this.repo.findById(id);
   }
 
   updateNote(id: number, patch: NotePatch): Note | undefined {
     // 🔴🟢 EJERCICIO 4: ciclo completo. Es una actualización PARCIAL:
     // si patch solo trae `title`, `content` no debe cambiar (y viceversa).
-    throw new Error('updateNote: no implementado (Ejercicio 4)');
+    throw new Error("updateNote: no implementado (Ejercicio 4)");
   }
 
   deleteNote(id: number): boolean {
